@@ -27,4 +27,4 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add loop.txt
           git commit -m "loop $(date)"
-          git push
+          git push --force
