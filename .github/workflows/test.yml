@@ -17,7 +17,7 @@ jobs:
 
       - name: Modify file
         run: |
-          echo "Looping: $(date)" >> loop.txt
+          echo $RANDOM >> loop.txt
 
       - name: Commit & Push
         run: |
