@@ -12,17 +12,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout main properly
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Modify file
-        run: |
-          echo $RANDOM >> loop.txt
+        run: echo $RANDOM >> loop.txt
 
       - name: Commit & Push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add loop.txt
-          git commit -m "triggered $(date +%s)"
+          git commit -m "loop $(date)"
           git push
